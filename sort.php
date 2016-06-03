@@ -12,6 +12,15 @@ echo implode(',',$sort_arr);
 echo '<hr/>';
 
 //冒泡排序
+/**
+ * [bubble description]
+ * @Author:  chaogao
+ * @DateTime 2016-06-03T09:58:11+0800
+ * @Since:   1.3.0
+ * @param    [type]                   $arr     [description]
+ * @param    [type]                   $arr_len [description]
+ * @return   [type]                            [description]
+ */
 function bubble($arr,$arr_len){
 	$pre_sort_time = microtime(true);
 	for ($i = 0; $i < $arr_len; ++$i) { 
@@ -54,8 +63,7 @@ $func_index = 1;
 //给1-10排序
 $sort_arr = $func_name_arr[$func_index]($sort_arr,10);
 
-//排序后的数组
-echo $func_name_arr[$func_index]."排序后数组：<br/>";
+ echo $func_name_arr[$func_index]."排序后数组：<br/>";
 echo implode(',',$sort_arr['arr']);
 if(IS_ALL_SORT)
 {
