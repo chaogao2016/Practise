@@ -1,9 +1,10 @@
 <?php
 
-require_once('./autoLoad/AutoLoader.php');
+require("/common/Front.php");
 
-AutoLoader::addLoader(function(){});
+Front::getInstance()->run();
 
-$temp = new Bubble();
+$sort_manager = SortManager::getInstance();
 
-$temp->sort();
+//创建样本
+$sort_manager->createSample(900);

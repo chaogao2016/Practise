@@ -7,8 +7,22 @@
 
 class Bubble extends SortAlgorithm {
 
-	function sort(){
-		echo __CLASS__;
+	private function sort(){
+		$this->_sort_start = microtime(true);
+
+		$length = count($this->_sample);
+
+		for ($i = 0; $i < $length; ++$i) { 
+			for ($j = 0; $j < $length - $i - 1; ++$j) { 
+				if ($this->_sample[$j] > $this->_sample[$j + 1]) {
+					$temp = $this->_sample[$j];
+					$this->_sample[$j] = $this->_sample[$j + 1];
+					$this->_sample[$j + 1] = $temp;
+				}
+			}
+		}
+		$this->_sort_end = microtime(true);
+		return array("time"=>($aft_sort_time - $pre_sort_time),"arr"=>$arr);
 	}
 
 }
