@@ -7,9 +7,7 @@
 
 class Bubble extends SortAlgorithm {
 
-	public function sort(array $arr){
-		$this->_sort_start = microtime(true);
-
+	public function exerciser(array $arr){
 		$length = count($arr);
 
 		for ($i = 0; $i < $length; ++$i) { 
@@ -21,9 +19,8 @@ class Bubble extends SortAlgorithm {
 				}
 			}
 		}
-		$this->_sort_end = microtime(true);
 		
-		$this->_order_samples = $arr;
+		return $arr;
 	}
 
 	public function getName(){

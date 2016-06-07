@@ -15,6 +15,12 @@ abstract class SortAlgorithm{
 	//排序结束时间
 	protected $_sort_end;
 
+    //排序开始内存占用
+    protected $_memory_start;
+
+    //排序结束内存占用
+    protected $_memory_end;
+
 	/**
 	 * 对样本进行排序
 	 * @Author:  chaogao
@@ -22,7 +28,26 @@ abstract class SortAlgorithm{
 	 * @Since:   1.0.0
 	 * @param    array                    $arr 排序样本
 	 */
-    abstract public function sort(array $arr);
+    public function sort(array $arr){
+        $this->_memory_start = memory_get_usage();
+        
+        $this->_sort_start = microtime(true);
+
+        $this->_order_samples = $this->exerciser($arr);
+
+        $this->_sort_end = microtime(true);
+
+        $this->_memory_end = memory_get_usage();
+    }
+
+    /**
+     * 执行排序程序
+     * @Author:  chaogao
+     * @DateTime 2016-06-07T15:33:08+0800
+     * @Since:   1.0.0
+     * @return   array                     排序结果
+     */
+    abstract public function exerciser(array $arr);
 
     /**
      * 获得算法名称
@@ -42,10 +67,18 @@ abstract class SortAlgorithm{
      */
     public function getSortTime(){
     	if (empty($this->_sort_start) || empty($this->_sort_end)) {
-    		throw new Exception("Please call sort before call getSortTime");exit();
+    		throw new Exception("Please call exerciser before call getSortTime");exit();
     	}
 
-    	return round($this->_sort_end - $this->_sort_start,6);
+    	return round($this->_sort_end - $this->_sort_start,6)."秒";
+    }
+
+    public function getSortMemory(){
+        if (empty($this->_memory_start) || empty($this->_memory_end)) {
+            throw new Exception("Please call exerciser before call getSortMemory");exit();
+        }
+
+        return round($this->_memory_end - $this->_memory_start,6)."字节";
     }
 
     /**

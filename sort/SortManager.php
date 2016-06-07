@@ -95,9 +95,11 @@ class SortManager extends AbstractSington {
 
     		$sort->sort($target);
 
-    		echo "排序结果:".$sort->getOrderResult(self::SAMPLE_COUNT)."<br />";
+    		echo "排序结果：".$sort->getOrderResult(self::SAMPLE_COUNT)."<br />";
 
-    		echo "耗时".$sort->getSortTime()."秒<br />";
+    		echo "消耗时间：".$sort->getSortTime()."<br />";
+
+            // echo "消耗内存：".$sort->getSortMemory()."<br />";
 
     		echo '<hr/>';
     	}

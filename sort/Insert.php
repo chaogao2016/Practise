@@ -6,12 +6,10 @@
  */
 
 class Insert extends SortAlgorithm {
-    
-    public function sort(array $arr){
-		$this->_sort_start = microtime(true);
 
+	public function exerciser(array $arr){
 		$length = count($arr);
-
+		
 		for ($i = 1; $i < $length; $i++) { 
 			$temp = $arr[$i];
 			$j = $i - 1;
@@ -22,9 +20,7 @@ class Insert extends SortAlgorithm {
 			$arr[$j + 1] = $temp;
 		}
 
-		$this->_sort_end = microtime(true);
-		
-		$this->_order_samples = $arr;
+		return $arr;
 	}
 
 	public function getName(){
