@@ -7,22 +7,27 @@
 
 class Bubble extends SortAlgorithm {
 
-	private function sort(){
+	public function sort(array $arr){
 		$this->_sort_start = microtime(true);
 
-		$length = count($this->_sample);
+		$length = count($arr);
 
 		for ($i = 0; $i < $length; ++$i) { 
 			for ($j = 0; $j < $length - $i - 1; ++$j) { 
-				if ($this->_sample[$j] > $this->_sample[$j + 1]) {
-					$temp = $this->_sample[$j];
-					$this->_sample[$j] = $this->_sample[$j + 1];
-					$this->_sample[$j + 1] = $temp;
+				if ($arr[$j] > $arr[$j + 1]) {
+					$temp = $arr[$j];
+					$arr[$j] = $arr[$j + 1];
+					$arr[$j + 1] = $temp;
 				}
 			}
 		}
 		$this->_sort_end = microtime(true);
-		return array("time"=>($aft_sort_time - $pre_sort_time),"arr"=>$arr);
+		
+		$this->_order_samples = $arr;
+	}
+
+	public function getName(){
+		return "冒泡排序";
 	}
 
 }
