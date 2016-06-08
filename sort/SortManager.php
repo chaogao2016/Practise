@@ -99,7 +99,7 @@ class SortManager extends AbstractSington {
 
     		echo "消耗时间：".$sort->getSortTime()."<br />";
 
-            // echo "消耗内存：".$sort->getSortMemory()."<br />";
+            echo "消耗内存：".$sort->getSortMemory()."<br />";
 
     		echo '<hr/>';
     	}
@@ -133,6 +133,7 @@ class SortManager extends AbstractSington {
      * @Author:  chaogao
      * @DateTime 2016-06-07T11:06:40+0800
      * @Since:   1.0.0
+     * @return   array           由排序名组成的数组
      */
     public function getAllSort(){
     	$arr = array();

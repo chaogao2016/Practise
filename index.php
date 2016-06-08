@@ -15,6 +15,9 @@ $arr = array(
 	new Insert(),
 	new Bubble(),
 	new Quick(),
+	new Choice(),
+	new Merge(),
+	new Heap(),
 	);
 $sort_manager->addSort($arr);
 

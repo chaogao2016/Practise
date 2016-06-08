@@ -73,6 +73,13 @@ abstract class SortAlgorithm{
     	return round($this->_sort_end - $this->_sort_start,6)."秒";
     }
 
+    /**
+     * 获得排序消耗内存
+     * @Author:  chaogao
+     * @DateTime 2016-06-08T10:06:54+0800
+     * @Since:   1.0.0
+     * @return   float                      消耗内存
+     */
     public function getSortMemory(){
         if (empty($this->_memory_start) || empty($this->_memory_end)) {
             throw new Exception("Please call exerciser before call getSortMemory");exit();
