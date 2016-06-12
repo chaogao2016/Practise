@@ -91,7 +91,7 @@ class SortManager extends AbstractSington {
     	$capacity = count($target);
 
     	foreach (static::$_sort_arr as $sort) {
-    		echo "使用\"".$sort->getName()."\"对".$capacity."个样本数据进行排序<br />";
+    		echo "使用<b>\"".$sort->getName()."\"</b>对<b>".$capacity."</b>个样本数据进行排序<br />";
 
     		$sort->sort($target);
 
