@@ -1,6 +1,8 @@
 <?php
 
-require("/common/Front.php");
+require_once("./config/Config.php");
+
+require_once("./common/Front.php");
 
 Front::getInstance()->run();
 

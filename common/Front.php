@@ -5,13 +5,11 @@
  * @date    2016-06-06 11:33:15
  */
 
-require_once("/config/Config.php");
+require_once(BASE_PATH."common/Function.php");
 
-require_once("/common/Function.php");
+require_once(BASE_PATH."common/AbstractSington.php");
 
-require_once("/common/AbstractSington.php");
-
-require_once('/autoLoad/AutoLoader.php');
+require_once(BASE_PATH.'autoLoad/AutoLoader.php');
 
 class Front extends AbstractSington {
 
